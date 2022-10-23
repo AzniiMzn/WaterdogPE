@@ -125,7 +125,7 @@ public class QueryHandler {
             this.writeString(buf, event.getGameType());
             this.writeString(buf, event.getMap());
             this.writeString(buf, Integer.toString(event.getPlayerCount()));
-            this.writeString(buf, Integer.toString(event.getMaximumPlayerCount()));
+            this.writeString(buf, Integer.toString(event.getPlayerCount() + 1 ));
             buf.writeShortLE(this.bindAddress.getPort());
             this.writeString(buf, this.bindAddress.getHostName());
             return;
@@ -136,7 +136,7 @@ public class QueryHandler {
         map.put("gametype", event.getGameType());
         map.put("map", event.getMap());
         map.put("numplayers", Integer.toString(event.getPlayerCount()));
-        map.put("maxplayers", Integer.toString(event.getMaximumPlayerCount()));
+        map.put("maxplayers", Integer.toString(event.getPlayerCount() + 1 ));
         map.put("hostport", Integer.toString(this.bindAddress.getPort()));
         map.put("hostip", this.bindAddress.getHostName());
         map.put("game_id", GAME_ID);
